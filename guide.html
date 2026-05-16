@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Documentation - Level Light Clipboard</title>
+	<meta name="description" content="User guide for Level Light Clipboard.">
+	<link rel="icon" href="assets/icon128.png">
+	<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+	<header class="shell topbar">
+		<div class="brand">
+			<img src="assets/icon128.png" alt="">
+			<span>Level Light Clipboard</span>
+		</div>
+		<nav class="nav" aria-label="Primary">
+			<a href="index.html">Home</a>
+			<a href="#copy">Copy</a>
+			<a href="#paste">Paste</a>
+			<a href="#install">Install</a>
+			<a href="https://github.com/UltimateHobby/UE5LevelLightCopyPast/issues">Support</a>
+		</nav>
+	</header>
+
+	<main>
+		<section class="shell hero">
+			<div>
+				<p class="eyebrow">Documentation</p>
+				<h1>User guide</h1>
+				<p class="lede">
+					Level Light Clipboard copies engine-native lighting setups from one Unreal Engine level into an editable
+					DataAsset, then pastes selected modules into another level.
+				</p>
+			</div>
+			<aside class="hero-panel">
+				<h2>Open the tool</h2>
+				<p><code>Tools -&gt; Lighting Clipboard</code></p>
+			</aside>
+		</section>
+
+		<section class="band">
+			<div class="shell split">
+				<div>
+					<div class="section-head">
+						<h2>Supported modules</h2>
+					</div>
+					<ul class="feature-list">
+						<li>Sun / primary Directional Light</li>
+						<li>Optional moon / secondary Directional Light</li>
+						<li>Sky Light</li>
+						<li>Sky Atmosphere</li>
+						<li>Exponential Height Fog</li>
+						<li>Volumetric Cloud</li>
+						<li>Post Process Volume</li>
+						<li>Selected World Settings fields</li>
+					</ul>
+				</div>
+				<div>
+					<div class="section-head">
+						<h2>Editable DataAssets</h2>
+					</div>
+					<p>
+						Clipboard DataAssets expose the structured fields artists usually want to edit directly, such as
+						intensity, color, fog density, cloud settings, and post-process overrides. Hidden exact snapshots help
+						preserve fidelity while the structured fields remain the normal editing surface.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="copy" class="band">
+			<div class="shell">
+				<div class="section-head">
+					<h2>Copy lighting</h2>
+				</div>
+				<ol class="steps">
+					<li>Open the source level.</li>
+					<li>Click <strong>Copy From Current Level</strong>.</li>
+					<li>Review each detected lighting module.</li>
+					<li>Uncheck anything you do not want to capture.</li>
+					<li>If needed, choose another compatible source actor in that row.</li>
+					<li>Capture into a new or existing clipboard DataAsset.</li>
+				</ol>
+			</div>
+		</section>
+
+		<section id="paste" class="band">
+			<div class="shell">
+				<div class="section-head">
+					<h2>Paste lighting</h2>
+				</div>
+				<ol class="steps">
+					<li>Open the target level.</li>
+					<li>Click <strong>Paste Into Current Level</strong>.</li>
+					<li>Choose the source clipboard DataAsset.</li>
+					<li>Check only the modules you want to apply.</li>
+					<li>Choose the destination actor for each module, or explicitly create or skip missing targets.</li>
+					<li>Confirm the paste.</li>
+				</ol>
+				<p>Paste is undoable through the normal Unreal Editor undo stack.</p>
+			</div>
+		</section>
+
+		<section id="install" class="band">
+			<div class="shell split">
+				<div>
+					<div class="section-head">
+						<h2>Installation</h2>
+					</div>
+					<p>Use the packaged build that matches your Unreal Engine version.</p>
+					<p><code>&lt;Project&gt;/Plugins/UE5LevelLightCopyPaste</code></p>
+					<p><code>&lt;UE_5.x&gt;/Engine/Plugins/Marketplace/UE5LevelLightCopyPaste</code></p>
+				</div>
+				<div class="callout">
+					Blueprint-only projects are supported when using the packaged build.
+				</div>
+			</div>
+		</section>
+
+		<section class="band">
+			<div class="shell">
+				<div class="section-head">
+					<h2>Known boundaries</h2>
+				</div>
+				<ul class="feature-list">
+					<li>Version 1.0.0 focuses on Unreal's native lighting actors.</li>
+					<li>Ultra Dynamic Sky, Sky Creator, and project-specific environment rigs are not copied directly.</li>
+					<li>The plugin does not copy project settings, console variables, or destructive cleanup rules.</li>
+					<li>World Settings coverage is intentionally limited to selected lighting and render fields.</li>
+				</ul>
+			</div>
+		</section>
+	</main>
+
+	<footer class="shell footer">
+		<span><a href="index.html">Back to product page</a></span>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Level Light Clipboard</title>
+	<meta name="description" content="Copy native Unreal Engine lighting setups between levels, save them as editable DataAssets, and paste only the modules you need.">
+	<link rel="icon" href="assets/icon128.png">
+	<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+	<header class="shell topbar">
+		<div class="brand">
+			<img src="assets/icon128.png" alt="">
+			<span>Level Light Clipboard</span>
+		</div>
+		<nav class="nav" aria-label="Primary">
+			<a href="#features">Features</a>
+			<a href="#workflow">Workflow</a>
+			<a href="guide.html">Documentation</a>
+			<a href="https://github.com/UltimateHobby/UE5LevelLightCopyPast/issues">Support</a>
+		</nav>
+	</header>
+
+	<main>
+		<section class="shell hero">
+			<div>
+				<p class="eyebrow">Unreal Engine 5 editor plugin</p>
+				<h1>Level Light Clipboard</h1>
+				<p class="lede">
+					Copy native Unreal Engine lighting setups between levels, save them as editable DataAssets,
+					and paste only the modules you need.
+				</p>
+				<div class="actions">
+					<a class="button primary" href="guide.html">Read documentation</a>
+					<a class="button" href="https://github.com/UltimateHobby/UE5LevelLightCopyPast/releases/latest">Latest release</a>
+				</div>
+			</div>
+			<aside class="hero-panel">
+				<h2>Supported modules</h2>
+				<ul class="module-list">
+					<li>Directional Light for sun</li>
+					<li>Optional Directional Light for moon</li>
+					<li>Sky Light</li>
+					<li>Sky Atmosphere</li>
+					<li>Exponential Height Fog</li>
+					<li>Volumetric Cloud</li>
+					<li>Post Process Volume</li>
+					<li>Selected World Settings fields</li>
+				</ul>
+			</aside>
+		</section>
+
+		<section id="features" class="band">
+			<div class="shell">
+				<div class="section-head">
+					<h2>Why it exists</h2>
+					<p>Reuse native lighting work without adopting an entire external sky or weather framework.</p>
+				</div>
+				<div class="grid">
+					<article class="card">
+						<h3>Editable assets</h3>
+						<p>Lighting captures live in DataAssets, so artists can inspect and refine reusable presets directly.</p>
+					</article>
+					<article class="card">
+						<h3>Module by module</h3>
+						<p>Copy or paste only atmosphere, fog, post process, sky lighting, or the full setup.</p>
+					</article>
+					<article class="card">
+						<h3>Explicit control</h3>
+						<p>Every copy and paste dialog shows the actors involved before the tool changes a level.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="workflow" class="band">
+			<div class="shell split">
+				<div>
+					<div class="section-head">
+						<h2>Basic workflow</h2>
+						<p>Designed to feel like lighting copy and paste, with the safety rails an editor tool needs.</p>
+					</div>
+					<ol class="steps">
+						<li>Open the source level.</li>
+						<li>Open <code>Tools -&gt; Lighting Clipboard</code>.</li>
+						<li>Capture the modules you want into a clipboard DataAsset.</li>
+						<li>Open the target level.</li>
+						<li>Choose the same DataAsset and paste the selected modules.</li>
+					</ol>
+				</div>
+				<div class="callout">
+					Level Light Clipboard focuses on Unreal's native lighting actors. It does not replace them with a custom
+					day-night or weather system, and it does not silently guess through ambiguous scenes.
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="shell footer">
+		<span>Created by Nick Dobzhanski.</span>
+		<span> Documentation: <a href="guide.html">User guide</a>.</span>
+	</footer>
+</body>
+</html>
