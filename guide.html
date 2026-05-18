@@ -111,10 +111,30 @@
 					<p>Use the packaged build that matches your Unreal Engine version.</p>
 					<p><code>&lt;Project&gt;/Plugins/UE5LevelLightCopyPaste</code></p>
 					<p><code>&lt;UE_5.x&gt;/Engine/Plugins/Marketplace/UE5LevelLightCopyPaste</code></p>
+					<ol>
+						<li>Close Unreal Editor before copying the plugin into the project or engine plugin folder.</li>
+						<li>Reopen the project in the matching Unreal Engine version.</li>
+						<li>If Unreal prompts you to enable <strong>Level Light Clipboard</strong>, confirm and restart the editor.</li>
+						<li>Open <strong>Tools -&gt; Lighting Clipboard</strong> and verify that the panel opens.</li>
+						<li>Click <strong>Copy From Current Level</strong> and verify that the module-selection dialog appears.</li>
+					</ol>
 				</div>
 				<div class="callout">
 					Blueprint-only projects are supported when using the packaged build.
 				</div>
+			</div>
+		</section>
+
+		<section class="band">
+			<div class="shell">
+				<div class="section-head">
+					<h2>Troubleshooting</h2>
+				</div>
+				<ul class="feature-list">
+					<li>If the plugin does not appear, confirm that the package version matches the Unreal Engine version you opened.</li>
+					<li>If Unreal asks to rebuild the plugin, use a source-capable environment or install the packaged build that matches your engine version.</li>
+					<li>If a lighting actor is marked as missing during copy or paste, choose a compatible actor manually or create the missing destination actor explicitly in the paste dialog.</li>
+				</ul>
 			</div>
 		</section>
 
