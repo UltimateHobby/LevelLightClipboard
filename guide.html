@@ -3,158 +3,183 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Documentation - Level Light Clipboard</title>
-	<meta name="description" content="User guide for Level Light Clipboard.">
+	<title>User Guide - Level Light Clipboard</title>
+	<meta name="description" content="Installation and workflow guide for Level Light Clipboard.">
 	<link rel="icon" href="assets/icon128.png">
 	<link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-	<header class="shell topbar">
-		<div class="brand">
+<body class="docs-reader">
+	<header class="reader-topbar">
+		<a class="reader-brand" href="index.html" aria-label="Level Light Clipboard product page">
 			<img src="assets/icon128.png" alt="">
 			<span>Level Light Clipboard</span>
-		</div>
-		<nav class="nav" aria-label="Primary">
-			<a href="index.html">Home</a>
-			<a href="#copy">Copy</a>
-			<a href="#paste">Paste</a>
-			<a href="#install">Install</a>
+		</a>
+		<nav class="reader-links" aria-label="Documentation links">
+			<a href="index.html">Product page</a>
 			<a href="https://github.com/UltimateHobby/LevelLightClipboard/issues">Support</a>
 		</nav>
 	</header>
 
-	<main>
-		<section class="shell hero">
-			<div>
-				<p class="eyebrow">Documentation</p>
-				<h1>User guide</h1>
-				<p class="lede">
-					Level Light Clipboard copies engine-native lighting setups from one Unreal Engine level into an editable
+	<main class="reader-layout">
+		<aside class="reader-toc" aria-label="Guide sections">
+			<p>Contents</p>
+			<a href="#overview">Overview</a>
+			<a href="#requirements">Requirements</a>
+			<a href="#install">Install</a>
+			<a href="#open">Open the tool</a>
+			<a href="#copy">Copy lighting</a>
+			<a href="#paste">Paste lighting</a>
+			<a href="#modules">Supported modules</a>
+			<a href="#data-assets">DataAssets</a>
+			<a href="#troubleshooting">Troubleshooting</a>
+			<a href="#boundaries">Boundaries</a>
+		</aside>
+
+		<article class="reader-document">
+			<header class="reader-title">
+				<p>Unreal Engine editor plugin</p>
+				<h1>Level Light Clipboard User Guide</h1>
+				<div class="reader-meta">
+					<span>Version 1.0.0</span>
+					<span>UE 5.6 / 5.7</span>
+					<span>Windows</span>
+				</div>
+			</header>
+
+			<section id="overview" class="reader-section">
+				<h2>1. Overview</h2>
+				<p>
+					Level Light Clipboard copies native Unreal Engine lighting settings from one level into an editable
 					DataAsset, then pastes selected modules into another level.
 				</p>
-			</div>
-			<aside class="hero-panel">
-				<h2>Open the tool</h2>
-				<p><code>Tools -&gt; Lighting Clipboard</code></p>
-			</aside>
-		</section>
+				<p>
+					The tool is designed for deliberate editor work. Before copying or pasting, it shows the lighting
+					actors involved so you can choose the exact source or target when a level contains multiple compatible
+					actors.
+				</p>
+			</section>
 
-		<section class="band">
-			<div class="shell split">
-				<div>
-					<div class="section-head">
-						<h2>Supported modules</h2>
-					</div>
-					<ul class="feature-list">
-						<li>Sun / primary Directional Light</li>
-						<li>Optional moon / secondary Directional Light</li>
-						<li>Sky Light</li>
-						<li>Sky Atmosphere</li>
-						<li>Exponential Height Fog</li>
-						<li>Volumetric Cloud</li>
-						<li>Post Process Volume</li>
-						<li>Selected World Settings fields</li>
-					</ul>
-				</div>
-				<div>
-					<div class="section-head">
-						<h2>Editable DataAssets</h2>
-					</div>
-					<p>
-						Clipboard DataAssets expose the structured fields artists usually want to edit directly, such as
-						intensity, color, fog density, cloud settings, and post-process overrides. Hidden exact snapshots help
-						preserve fidelity while the structured fields remain the normal editing surface.
-					</p>
-				</div>
-			</div>
-		</section>
+			<section id="requirements" class="reader-section">
+				<h2>2. Requirements</h2>
+				<ul>
+					<li>Unreal Engine 5.6 or 5.7 on Windows.</li>
+					<li>A plugin package built for the same Unreal Engine version you are opening.</li>
+					<li>A level that uses Unreal's native lighting actors.</li>
+					<li>Blueprint-only projects are supported when using the packaged plugin build.</li>
+				</ul>
+			</section>
 
-		<section id="copy" class="band">
-			<div class="shell">
-				<div class="section-head">
-					<h2>Copy lighting</h2>
-				</div>
-				<ol class="steps">
+			<section id="install" class="reader-section">
+				<h2>3. Install</h2>
+				<ol>
+					<li>Close Unreal Editor.</li>
+					<li>Copy the matching plugin package into one of these locations:</li>
+				</ol>
+				<pre><code>&lt;Project&gt;/Plugins/UE5LevelLightCopyPaste
+&lt;UE_5.x&gt;/Engine/Plugins/Marketplace/UE5LevelLightCopyPaste</code></pre>
+				<ol start="3">
+					<li>Open the project in the matching Unreal Engine version.</li>
+					<li>Enable <strong>Level Light Clipboard</strong> if Unreal prompts you.</li>
+					<li>Restart Unreal Editor if requested.</li>
+				</ol>
+			</section>
+
+			<section id="open" class="reader-section">
+				<h2>4. Open the Tool</h2>
+				<p>In Unreal Editor, open the main menu item:</p>
+				<pre><code>Tools -> Lighting Clipboard</code></pre>
+				<p>The Lighting Clipboard panel should appear as an editor tab.</p>
+			</section>
+
+			<section id="copy" class="reader-section">
+				<h2>5. Copy Lighting</h2>
+				<ol>
 					<li>Open the source level.</li>
 					<li>Click <strong>Copy From Current Level</strong>.</li>
-					<li>Review each detected lighting module.</li>
-					<li>Uncheck anything you do not want to capture.</li>
-					<li>If needed, choose another compatible source actor in that row.</li>
-					<li>Capture into a new or existing clipboard DataAsset.</li>
+					<li>Review every detected lighting module in the dialog.</li>
+					<li>Uncheck modules you do not want to capture.</li>
+					<li>Choose a different compatible source actor if the selected actor is not the one you want.</li>
+					<li>Capture into a new or existing Lighting Clipboard DataAsset.</li>
 				</ol>
-			</div>
-		</section>
+			</section>
 
-		<section id="paste" class="band">
-			<div class="shell">
-				<div class="section-head">
-					<h2>Paste lighting</h2>
-				</div>
-				<ol class="steps">
+			<section id="paste" class="reader-section">
+				<h2>6. Paste Lighting</h2>
+				<ol>
 					<li>Open the target level.</li>
+					<li>Select the source Lighting Clipboard DataAsset.</li>
 					<li>Click <strong>Paste Into Current Level</strong>.</li>
-					<li>Choose the source clipboard DataAsset.</li>
 					<li>Check only the modules you want to apply.</li>
-					<li>Choose the destination actor for each module, or explicitly create or skip missing targets.</li>
+					<li>Choose the destination actor for each checked module.</li>
+					<li>If a target actor is missing, choose whether to create it or skip that module.</li>
 					<li>Confirm the paste.</li>
 				</ol>
-				<p>Paste is undoable through the normal Unreal Editor undo stack.</p>
-			</div>
-		</section>
+				<p>Paste operations are undoable through Unreal Editor's normal undo stack.</p>
+			</section>
 
-		<section id="install" class="band">
-			<div class="shell split">
-				<div>
-					<div class="section-head">
-						<h2>Installation</h2>
-					</div>
-					<p>Use the packaged build that matches your Unreal Engine version.</p>
-					<p><code>&lt;Project&gt;/Plugins/UE5LevelLightCopyPaste</code></p>
-					<p><code>&lt;UE_5.x&gt;/Engine/Plugins/Marketplace/UE5LevelLightCopyPaste</code></p>
-					<ol>
-						<li>Close Unreal Editor before copying the plugin into the project or engine plugin folder.</li>
-						<li>Reopen the project in the matching Unreal Engine version.</li>
-						<li>If Unreal prompts you to enable <strong>Level Light Clipboard</strong>, confirm and restart the editor.</li>
-						<li>Open <strong>Tools -&gt; Lighting Clipboard</strong> and verify that the panel opens.</li>
-						<li>Click <strong>Copy From Current Level</strong> and verify that the module-selection dialog appears.</li>
-					</ol>
-				</div>
-				<div class="callout">
-					Blueprint-only projects are supported when using the packaged build.
-				</div>
-			</div>
-		</section>
-
-		<section class="band">
-			<div class="shell">
-				<div class="section-head">
-					<h2>Troubleshooting</h2>
-				</div>
-				<ul class="feature-list">
-					<li>If the plugin does not appear, confirm that the package version matches the Unreal Engine version you opened.</li>
-					<li>If Unreal asks to rebuild the plugin, use a source-capable environment or install the packaged build that matches your engine version.</li>
-					<li>If a lighting actor is marked as missing during copy or paste, choose a compatible actor manually or create the missing destination actor explicitly in the paste dialog.</li>
+			<section id="modules" class="reader-section">
+				<h2>7. Supported Modules</h2>
+				<ul class="reader-columns">
+					<li>Sun / primary Directional Light</li>
+					<li>Optional moon / secondary Directional Light</li>
+					<li>Sky Light</li>
+					<li>Sky Atmosphere</li>
+					<li>Exponential Height Fog</li>
+					<li>Volumetric Cloud</li>
+					<li>Post Process Volume</li>
+					<li>Selected World Settings fields</li>
 				</ul>
-			</div>
-		</section>
+			</section>
 
-		<section class="band">
-			<div class="shell">
-				<div class="section-head">
-					<h2>Known boundaries</h2>
-				</div>
-				<ul class="feature-list">
-					<li>Version 1.0.0 focuses on Unreal's native lighting actors.</li>
+			<section id="data-assets" class="reader-section">
+				<h2>8. Lighting Clipboard DataAssets</h2>
+				<p>
+					Captures are stored as editable DataAssets. You can inspect and adjust structured lighting values such
+					as intensity, color, Sky Light source settings, fog density, cloud settings, and post-process overrides.
+				</p>
+				<p>
+					The plugin also stores hidden snapshots to preserve engine settings that are not exposed as primary
+					editable fields. These snapshots improve paste fidelity while keeping the normal editing surface simple.
+				</p>
+			</section>
+
+			<section id="troubleshooting" class="reader-section">
+				<h2>9. Troubleshooting</h2>
+				<table class="reader-table">
+					<thead>
+						<tr>
+							<th>Problem</th>
+							<th>Check</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>The plugin does not appear.</td>
+							<td>Confirm the plugin package matches the Unreal Engine version you opened.</td>
+						</tr>
+						<tr>
+							<td>Unreal asks to rebuild the plugin.</td>
+							<td>Use the packaged build for your engine version, or open the source package in a C++-capable setup.</td>
+						</tr>
+						<tr>
+							<td>A lighting actor is marked as missing.</td>
+							<td>Choose a compatible actor manually, create the missing actor during paste, or skip that module.</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="boundaries" class="reader-section">
+				<h2>10. Boundaries</h2>
+				<ul>
+					<li>The plugin focuses on Unreal's native lighting actors.</li>
 					<li>Ultra Dynamic Sky, Sky Creator, and project-specific environment rigs are not copied directly.</li>
-					<li>The plugin does not copy project settings, console variables, or destructive cleanup rules.</li>
-					<li>World Settings coverage is intentionally limited to selected lighting and render fields.</li>
+					<li>The plugin does not add a runtime day/night or weather system.</li>
+					<li>The plugin does not copy project settings, console variables, or destructive scene cleanup rules.</li>
+					<li>World Settings coverage is limited to selected lighting and render fields.</li>
 				</ul>
-			</div>
-		</section>
+			</section>
+		</article>
 	</main>
-
-	<footer class="shell footer">
-		<span><a href="index.html">Back to product page</a></span>
-	</footer>
 </body>
 </html>

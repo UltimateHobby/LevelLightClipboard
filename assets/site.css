@@ -250,3 +250,296 @@ code {
 		grid-template-columns: 1fr;
 	}
 }
+
+body.docs-reader {
+	color-scheme: light;
+	background: #e8ebf0;
+	color: #22262d;
+	font: 16px/1.68 "Segoe UI", Arial, sans-serif;
+}
+
+.docs-reader a {
+	color: #145f8f;
+}
+
+.reader-topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 24px;
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 18px 28px;
+}
+
+.reader-brand,
+.reader-links {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.reader-brand {
+	color: #22262d;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.reader-brand img {
+	width: 34px;
+	height: 34px;
+	border-radius: 6px;
+}
+
+.reader-links {
+	flex-wrap: wrap;
+	gap: 18px;
+	font-size: 14px;
+}
+
+.reader-links a,
+.reader-toc a {
+	text-decoration: none;
+}
+
+.reader-layout {
+	display: grid;
+	grid-template-columns: 220px minmax(0, 760px);
+	gap: 28px;
+	align-items: start;
+	max-width: 1060px;
+	margin: 0 auto 56px;
+	padding: 0 28px;
+}
+
+.reader-toc {
+	position: sticky;
+	top: 18px;
+	padding: 18px 0;
+	font-size: 14px;
+}
+
+.reader-toc p {
+	margin: 0 0 12px;
+	color: #6b7280;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.reader-toc a {
+	display: block;
+	padding: 6px 0;
+	color: #46505c;
+}
+
+.reader-toc a:hover {
+	color: #145f8f;
+}
+
+.reader-document {
+	min-width: 0;
+	padding: 56px 64px 64px;
+	border: 1px solid #d6dbe3;
+	background: #fff;
+	box-shadow: 0 18px 45px rgba(42, 48, 57, 0.14);
+}
+
+.reader-title {
+	padding-bottom: 30px;
+	border-bottom: 1px solid #dce1e8;
+}
+
+.reader-title p {
+	margin: 0 0 10px;
+	color: #6b7280;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.reader-title h1 {
+	max-width: 680px;
+	margin: 0;
+	color: #151922;
+	font-size: 36px;
+	line-height: 1.16;
+}
+
+.reader-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 18px;
+	color: #46505c;
+	font-size: 14px;
+}
+
+.reader-meta span {
+	padding: 4px 8px;
+	border: 1px solid #d6dbe3;
+	border-radius: 6px;
+	background: #f4f6f8;
+}
+
+.reader-section {
+	padding: 34px 0 0;
+	scroll-margin-top: 18px;
+}
+
+.reader-section + .reader-section {
+	margin-top: 2px;
+}
+
+.reader-section h2 {
+	margin: 0 0 14px;
+	color: #151922;
+	font-size: 23px;
+	line-height: 1.25;
+}
+
+.reader-section p {
+	margin: 0 0 14px;
+}
+
+.reader-section p:last-child,
+.reader-section ul:last-child,
+.reader-section ol:last-child,
+.reader-section table:last-child,
+.reader-section pre:last-child {
+	margin-bottom: 0;
+}
+
+.reader-section ul,
+.reader-section ol {
+	margin: 0 0 18px;
+	padding-left: 24px;
+}
+
+.reader-section li {
+	margin: 7px 0;
+}
+
+.reader-section strong {
+	color: #151922;
+}
+
+.reader-section pre {
+	max-width: 100%;
+	margin: 12px 0 18px;
+	padding: 14px 16px;
+	overflow-x: auto;
+	border: 1px solid #d6dbe3;
+	border-radius: 6px;
+	background: #f4f6f8;
+}
+
+.reader-section code {
+	padding: 0;
+	border-radius: 0;
+	background: transparent;
+	color: #202631;
+	font-size: 14px;
+}
+
+.reader-columns {
+	columns: 2;
+	column-gap: 34px;
+}
+
+.reader-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 15px;
+}
+
+.reader-table th,
+.reader-table td {
+	padding: 12px 0;
+	border-bottom: 1px solid #dce1e8;
+	text-align: left;
+	vertical-align: top;
+}
+
+.reader-table th {
+	color: #46505c;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+
+.reader-table td + td,
+.reader-table th + th {
+	padding-left: 24px;
+}
+
+@media (max-width: 880px) {
+	.reader-topbar {
+		display: block;
+		padding: 16px 20px;
+	}
+
+	.reader-links {
+		margin-top: 12px;
+	}
+
+	.reader-layout {
+		display: block;
+		padding: 0 16px;
+	}
+
+	.reader-toc {
+		position: static;
+		display: flex;
+		gap: 8px 16px;
+		flex-wrap: wrap;
+		padding: 12px 0 16px;
+	}
+
+	.reader-toc p {
+		width: 100%;
+		margin-bottom: 0;
+	}
+
+	.reader-toc a {
+		padding: 0;
+	}
+
+	.reader-document {
+		padding: 34px 24px 40px;
+	}
+
+	.reader-title h1 {
+		font-size: 30px;
+	}
+
+	.reader-columns {
+		columns: 1;
+	}
+
+	.reader-table,
+	.reader-table thead,
+	.reader-table tbody,
+	.reader-table tr,
+	.reader-table th,
+	.reader-table td {
+		display: block;
+	}
+
+	.reader-table thead {
+		display: none;
+	}
+
+	.reader-table tr {
+		padding: 12px 0;
+		border-bottom: 1px solid #dce1e8;
+	}
+
+	.reader-table td {
+		padding: 0;
+		border-bottom: 0;
+	}
+
+	.reader-table td + td {
+		padding: 6px 0 0;
+		color: #46505c;
+	}
+}
