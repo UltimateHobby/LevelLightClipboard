@@ -4,43 +4,87 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Level Light Clipboard</title>
-	<meta name="description" content="Copy native Unreal Engine lighting setups between levels, save them as editable DataAssets, and paste only the modules you need.">
+	<meta name="description" content="Product overview for Level Light Clipboard, an Unreal Engine editor plugin for copying native lighting setups between levels.">
 	<link rel="icon" href="assets/llcp-logo-128.png">
-	<link rel="stylesheet" href="assets/site.css">
+	<link rel="stylesheet" href="assets/guide-reader.css">
 </head>
-<body>
-	<header class="shell topbar">
-		<div class="brand">
+<body class="docs-reader">
+	<header class="reader-topbar">
+		<a class="reader-brand" href="index.html" aria-label="Level Light Clipboard overview">
 			<img src="assets/llcp-logo-128.png" alt="">
 			<span>Level Light Clipboard</span>
-		</div>
-		<nav class="nav" aria-label="Primary">
-			<a href="#features">Features</a>
-			<a href="#workflow">Workflow</a>
-			<a href="guide.html">Documentation</a>
+		</a>
+		<nav class="reader-links" aria-label="Product links">
+			<a href="guide.html">User guide</a>
+			<a href="https://github.com/UltimateHobby/LevelLightClipboard/releases/latest">Releases</a>
 			<a href="https://github.com/UltimateHobby/LevelLightClipboard/issues">Support</a>
 		</nav>
 	</header>
 
-	<main>
-		<section class="shell hero">
-			<div>
-				<p class="eyebrow">Unreal Engine 5 editor plugin</p>
+	<main class="reader-layout">
+		<aside class="reader-toc" aria-label="Overview sections">
+			<p>Contents</p>
+			<a href="#summary">Summary</a>
+			<a href="#use-cases">Use cases</a>
+			<a href="#workflow">Workflow</a>
+			<a href="#modules">Supported modules</a>
+			<a href="#package">Package details</a>
+			<a href="#boundaries">Boundaries</a>
+			<a href="#next">Next steps</a>
+		</aside>
+
+		<article class="reader-document">
+			<header class="reader-title">
+				<p>Unreal Engine editor plugin</p>
 				<h1>Level Light Clipboard</h1>
-				<p class="lede">
-					Copy native Unreal Engine lighting setups between levels, save them as editable DataAssets,
-					and paste only the modules you need.
-				</p>
-				<div class="actions">
-					<a class="button primary" href="guide.html">Read documentation</a>
-					<a class="button" href="https://github.com/UltimateHobby/LevelLightClipboard/releases/latest">Latest release</a>
+				<div class="reader-meta">
+					<span>Version 1.0.0</span>
+					<span>UE 5.6 / 5.7</span>
+					<span>Windows</span>
 				</div>
-			</div>
-			<aside class="hero-panel">
-				<h2>Supported modules</h2>
-				<ul class="module-list">
-					<li>Directional Light for sun</li>
-					<li>Optional Directional Light for moon</li>
+			</header>
+
+			<section id="summary" class="reader-section">
+				<h2>1. Summary</h2>
+				<p>
+					Level Light Clipboard copies native Unreal Engine lighting setups from one level into editable
+					DataAssets, then pastes selected lighting modules into another level.
+				</p>
+				<p>
+					It is built for editor workflows where artists and level designers want to reuse a polished lighting
+					setup without replacing Unreal's native lighting actors with a separate sky, weather, or time-of-day
+					system.
+				</p>
+			</section>
+
+			<section id="use-cases" class="reader-section">
+				<h2>2. Use Cases</h2>
+				<ul>
+					<li>Move a look-dev lighting setup into production maps.</li>
+					<li>Save reusable lighting presets as normal Unreal DataAssets.</li>
+					<li>Transfer only selected parts of a setup, such as fog, atmosphere, sky light, or post process.</li>
+					<li>Review source and target actors before the tool changes a level.</li>
+				</ul>
+			</section>
+
+			<section id="workflow" class="reader-section">
+				<h2>3. Basic Workflow</h2>
+				<ol>
+					<li>Open the source level.</li>
+					<li>Open <strong>Tools -> Lighting Clipboard</strong>.</li>
+					<li>Copy the lighting modules you want into a Lighting Clipboard DataAsset.</li>
+					<li>Open the target level.</li>
+					<li>Select the same DataAsset.</li>
+					<li>Paste only the modules you want to apply.</li>
+				</ol>
+				<p>For step-by-step setup and troubleshooting, use the <a href="guide.html">user guide</a>.</p>
+			</section>
+
+			<section id="modules" class="reader-section">
+				<h2>4. Supported Modules</h2>
+				<ul class="reader-columns">
+					<li>Sun / primary Directional Light</li>
+					<li>Optional moon / secondary Directional Light</li>
 					<li>Sky Light</li>
 					<li>Sky Atmosphere</li>
 					<li>Exponential Height Fog</li>
@@ -48,58 +92,59 @@
 					<li>Post Process Volume</li>
 					<li>Selected World Settings fields</li>
 				</ul>
-			</aside>
-		</section>
+			</section>
 
-		<section id="features" class="band">
-			<div class="shell">
-				<div class="section-head">
-					<h2>Why it exists</h2>
-					<p>Reuse native lighting work without adopting an entire external sky or weather framework.</p>
-				</div>
-				<div class="grid">
-					<article class="card">
-						<h3>Editable assets</h3>
-						<p>Lighting captures live in DataAssets, so artists can inspect and refine reusable presets directly.</p>
-					</article>
-					<article class="card">
-						<h3>Module by module</h3>
-						<p>Copy or paste only atmosphere, fog, post process, sky lighting, or the full setup.</p>
-					</article>
-					<article class="card">
-						<h3>Explicit control</h3>
-						<p>Every copy and paste dialog shows the actors involved before the tool changes a level.</p>
-					</article>
-				</div>
-			</div>
-		</section>
+			<section id="package" class="reader-section">
+				<h2>5. Package Details</h2>
+				<table class="reader-table">
+					<tbody>
+						<tr>
+							<th>Product type</th>
+							<td>Unreal Engine code plugin</td>
+						</tr>
+						<tr>
+							<th>Primary use</th>
+							<td>Editor lighting copy/paste between levels</td>
+						</tr>
+						<tr>
+							<th>Supported engine versions</th>
+							<td>Unreal Engine 5.6 and 5.7</td>
+						</tr>
+						<tr>
+							<th>Target platform</th>
+							<td>Windows / Win64</td>
+						</tr>
+						<tr>
+							<th>Blueprint-only projects</th>
+							<td>Supported when using the packaged plugin build</td>
+						</tr>
+						<tr>
+							<th>Third-party dependencies</th>
+							<td>None</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
 
-		<section id="workflow" class="band">
-			<div class="shell split">
-				<div>
-					<div class="section-head">
-						<h2>Basic workflow</h2>
-						<p>Designed to feel like lighting copy and paste, with the safety rails an editor tool needs.</p>
-					</div>
-					<ol class="steps">
-						<li>Open the source level.</li>
-						<li>Open <code>Tools -&gt; Lighting Clipboard</code>.</li>
-						<li>Capture the modules you want into a clipboard DataAsset.</li>
-						<li>Open the target level.</li>
-						<li>Choose the same DataAsset and paste the selected modules.</li>
-					</ol>
-				</div>
-				<div class="callout">
-					Level Light Clipboard focuses on Unreal's native lighting actors. It does not replace them with a custom
-					day-night or weather system, and it does not silently guess through ambiguous scenes.
-				</div>
-			</div>
-		</section>
+			<section id="boundaries" class="reader-section">
+				<h2>6. Boundaries</h2>
+				<ul>
+					<li>The plugin focuses on Unreal's native lighting actors.</li>
+					<li>Ultra Dynamic Sky, Sky Creator, and project-specific environment rigs are not copied directly.</li>
+					<li>The plugin does not add a runtime day/night or weather system.</li>
+					<li>The plugin does not copy project settings, console variables, or destructive cleanup rules.</li>
+				</ul>
+			</section>
+
+			<section id="next" class="reader-section">
+				<h2>7. Next Steps</h2>
+				<ol>
+					<li>Read the <a href="guide.html">user guide</a>.</li>
+					<li>Download the package that matches your Unreal Engine version from the <a href="https://github.com/UltimateHobby/LevelLightClipboard/releases/latest">latest release</a>.</li>
+					<li>Use <a href="https://github.com/UltimateHobby/LevelLightClipboard/issues">support</a> for bug reports or setup questions.</li>
+				</ol>
+			</section>
+		</article>
 	</main>
-
-	<footer class="shell footer">
-		<span>Created by Nick Dobzhanski.</span>
-		<span> Documentation: <a href="guide.html">User guide</a>.</span>
-	</footer>
 </body>
 </html>
